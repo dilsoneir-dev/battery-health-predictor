@@ -32,7 +32,7 @@ O desgaste de celulas de ion de litio segue equacoes empiricas derivadas do efei
 * **Tempo Conectado a Tomada ($AC$ em %):** Manutencao do estresse de tensao a 100% de carga.
 * **Ciclos de Carga ($C$):** Desgaste mecanico por intercalacao de litio.
 
-### 4. Otimizações Ativas
+### 4. Otimizacoes Ativas
 
 Foram realizadas as seguintes otimizações, as quais refletiram em melhoria da saúde da bateria:
 
