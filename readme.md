@@ -32,12 +32,15 @@ O desgaste de celulas de ion de litio segue equacoes empiricas derivadas do efei
 * **Tempo Conectado a Tomada ($AC$ em %):** Manutencao do estresse de tensao a 100% de carga.
 * **Ciclos de Carga ($C$):** Desgaste mecanico por intercalacao de litio.
 
-### 4. Otimizacoes Ativas
-Foram realizadas as seguintes otimizacoes, as quais refletiram em melhoria da saúde da bateria:
-Custom Charge Stop (85%): Reducao do estresse de alta tensao nas celulas.
-Custom Charge Start (50%): Eliminacao de micro-recargas com a fonte conectada.
-Connected Standby (Desativado): Interrupcao de drenagem silenciosa e aquecimento em repouso.
-USB PowerShare (Desativado): Corte do fornecimento continuo de energia pelas portas USB com o sistema desligado.
+### 4. Otimizações Ativas
+
+Foram realizadas as seguintes otimizações, as quais refletiram em melhoria da saúde da bateria:
+
+* **Custom Charge Stop (85%):** Redução do estresse de alta tensão nas células.
+* **Custom Charge Start (50%):** Eliminação de micro-recargas com a fonte conectada.
+* **Connected Standby (Desativado):** Interrupção de drenagem silenciosa e aquecimento em repouso.
+* **USB PowerShare (Desativado):** Corte do fornecimento contínuo de energia pelas portas USB com o sistema desligado.
+
 ---
 
 ## 📁 Estrutura do Repositorio
@@ -51,6 +54,8 @@ battery-health-predictor/
 ├── battery-report-sample.html       # Relatorio de exemplo sanitizado (cross-platform)
 ├── battery_health_projection.png   # Grafico 1: Projecao temporal e parametros formais
 └── battery_advanced_degradation.png  # Grafico 2: Superficie 3D de estresse e decomposicao
+```
 
-### 📄 Licenca
+## 📄 Licenca
+
 Este projeto esta sob a licenca MIT.
