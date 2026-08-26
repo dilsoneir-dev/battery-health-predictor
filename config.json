@@ -1,0 +1,12 @@
+{
+  "system_info": {
+    "device_model": "Dell G15 Series",
+    "owner_alias": "dev_user"
+  },
+  "hardware_cycles": 260,
+  "manufacture_date": "2021-09-03",
+  "charge_stop_limit": 85,
+  "charge_start_limit": 50,
+  "connected_standby": false,
+  "usb_powershare": false
+}
