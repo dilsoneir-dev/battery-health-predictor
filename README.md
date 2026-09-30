@@ -43,6 +43,24 @@ Foram realizadas as seguintes otimizações, as quais refletiram em melhoria da 
 
 ---
 
+## ▶️ Como executar
+
+```bash
+pip install -r requirements.txt
+python Battery.py
+```
+
+O script escolhe a fonte dos dados nesta ordem:
+
+1. **Dados reais (Windows):** gera um relatorio novo com `powercfg /batteryreport` e higieniza os identificadores do equipamento.
+2. **Relatorio local:** se nao conseguir gerar, usa um `battery-report.html` que esteja na mesma pasta do `Battery.py`.
+3. **Dados de exemplo:** se nenhum dos dois existir (por exemplo, em Linux ou macOS), usa o `battery-report-sample.html` versionado neste repositorio.
+
+O `battery-report.html` real fica no `.gitignore` para nao ser publicado por engano; isso nao impede o script de le-lo localmente.
+Os dois graficos (`.png`) sao gerados na mesma pasta.
+
+---
+
 ## 📁 Estrutura do Repositorio
 
 ```text
@@ -58,4 +76,4 @@ battery-health-predictor/
 
 ## 📄 Licenca
 
-Este projeto esta sob a licenca MIT.
+Este projeto esta sob a licenca MIT (ver arquivo [`LICENSE`](LICENSE)).
