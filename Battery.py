@@ -61,18 +61,26 @@ def sanitize_battery_report(file_path):
             with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
                 content = f.read()
 
-            # Substituição dos campos conforme o mapeamento final de segurança
-            content = re.sub(
-                r"DESKTOP-[A-Za-z0-9]+", "DESKTOP-GENERIC", content
+            # No relatório do Windows, o rótulo e o valor ficam em células
+            # separadas, com quebras de linha e espaços entre eles:
+            #   <td class="label"> COMPUTER NAME </td><td>NOME-REAL</td>
+            # Por isso os padrões usam \s* e não dependem do nome começar com "DESKTOP-".
+            substituicoes = (
+                (r"COMPUTER NAME\s*</td>\s*<td>([^<]+)</td>", "DESKTOP-GENERIC"),
+                (r"USER NAME\s*</td>\s*<td>([^<]+)</td>", "generic_user"),
             )
+            for padrao, generico in substituicoes:
+                encontrado = re.search(padrao, content)
+                if encontrado:
+                    valor_real = encontrado.group(1).strip()
+                    # Troca o valor em TODO o relatório, não só no campo de origem.
+                    if valor_real and valor_real != generico:
+                        content = content.replace(valor_real, generico)
+
+            # Reforços: nomes no padrão do Windows e pastas de usuário.
+            content = re.sub(r"DESKTOP-[A-Za-z0-9]+", "DESKTOP-GENERIC", content)
             content = re.sub(
-                r"(COMPUTER NAME</td><td>)[^<]+", r"\1DESKTOP-GENERIC", content
-            )
-            content = re.sub(
-                r"(USER NAME</td><td>)[^<]+", r"\1generic_user", content
-            )
-            content = re.sub(
-                r"C:\\Users\\[^\\]+", r"C:\\Users\\generic_user", content
+                r"C:\\Users\\[^\\<\"]+", r"C:\\Users\\generic_user", content
             )
 
             with open(file_path, "w", encoding="utf-8") as f:
